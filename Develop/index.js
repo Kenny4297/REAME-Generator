@@ -7,7 +7,7 @@ const fs = require('fs');
 const questions = [
     {
         type: 'input',
-        name: 'User Name',
+        name: 'userName',
         message: 'What is your name?',
         validate: (response) => {
             if (response === '') {
@@ -19,7 +19,19 @@ const questions = [
 
     {
         type: 'input',
-        name: 'Repository Name',
+        name: 'userEmail',
+        message: 'What is your Email Address?',
+        validate: (response) => {
+            if (response === '') {
+                return 'Sorry! Please enter your email address!'
+            }
+            return true
+        }   
+    }, 
+
+    {
+        type: 'input',
+        name: 'repositoryName',
         message: 'Please enter the link to your repository',
         validate: (response) => {
             if (response === '') {
@@ -31,7 +43,7 @@ const questions = [
 
     {
         type: 'input',
-        name: 'Project Title',
+        name: 'projectTitle',
         massage: 'What is the name of the project?',
         validate: (response) => {
             if (response === '') {
@@ -43,7 +55,7 @@ const questions = [
 
     {
         type: 'input',
-        name: 'Project Description',
+        name: 'projectDescription',
         message: 'Please enter the project description:',
         validate: (response) => {
             if (response === '') {
@@ -55,19 +67,19 @@ const questions = [
 
     {
         type: 'input',
-        name: 'Project Title',
-        massage: 'What is the name of the project?',
+        name: 'contribution',
+        message: 'Please tell us how to contribute to your project',
         validate: (response) => {
             if (response === '') {
-                return 'Sorry! Please give your project a name!'
+                return 'Sorry! Please describe how to contribute to your project!'
             }
             return true
-        }
+        }                 
     },
 
     {
         type: 'input',
-        name: 'Installation Steps',
+        name: 'installationSteps',
         message: 'Enter the steps for installing this project',
         validate: (response) => {
             if (response === '') {
@@ -79,7 +91,7 @@ const questions = [
 
     {
         type: 'input',
-        name: 'App usage',
+        name: 'appUsage',
         message: 'How do you run this project?',
         validate: (response) => {
             if (response === '') {
@@ -91,19 +103,24 @@ const questions = [
 
     {
         type: 'list',
-        name: 'Licenses',
+        name: 'licenses',
         message: 'What licenses do you need for this project?',
         choices: ['MIT', 'GPLv2', 'Apache', 'GPLv3'],
         default: 'MIT',
+        // No validation needed, it's a list
+    },
+
+    {
+        type: 'input',
+        name: 'Tests',
+        message: 'How do you run tests for this project?',
         validate: (response) => {
-        if (response !== 'MIT' || response !== 'GPLv2' || response !== 'Apache' || response !== 'GPLv3') {
-        if (!(response.includes(choices)))
-            return 'Sorry! Please tell us what license to use!'
-        }
-        return true
-        } 
-        // do not need to validate, since it's a list!!
-    }
+            if (response === '') {
+                return 'Sorry! Please tell us how to run test for this project!'
+            }
+            return true
+        }       
+    },
 ];
 
 // TODO: Create a function to write README file
