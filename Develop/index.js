@@ -7,11 +7,11 @@ const fs = require('fs');
 const questions = [
     {
         type: 'input',
-        name: 'userName',
-        message: 'What is your name?',
+        name: 'title',
+        message: 'What is the title of the project?',
         validate: (response) => {
             if (response === '') {
-                return 'Sorry! Please enter something!'
+                return 'Sorry! Please enter the title of the project!!'
             }
             return true
         }   
@@ -19,63 +19,15 @@ const questions = [
 
     {
         type: 'input',
-        name: 'userEmail',
-        message: 'What is your Email Address?',
+        name: 'Description',
+        message: 'What is the description of the project?',
         validate: (response) => {
             if (response === '') {
-                return 'Sorry! Please enter your email address!'
+                return 'Sorry! Please enter the description!'
             }
             return true
         }   
     }, 
-
-    {
-        type: 'input',
-        name: 'repositoryName',
-        message: 'Please enter the link to your repository',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please enter a link to your repository!'
-            }
-            return true
-        }   
-    }, 
-
-    {
-        type: 'input',
-        name: 'projectTitle',
-        massage: 'What is the name of the project?',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please enter the name of this project!'
-            }
-            return true
-        }
-    },
-
-    {
-        type: 'input',
-        name: 'projectDescription',
-        message: 'Please enter the project description:',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please describe the project!'
-            }
-            return true
-        }                 
-    },
-
-    {
-        type: 'input',
-        name: 'contribution',
-        message: 'Please tell us how to contribute to your project',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please describe how to contribute to your project!'
-            }
-            return true
-        }                 
-    },
 
     {
         type: 'input',
@@ -107,12 +59,24 @@ const questions = [
         message: 'What licenses do you need for this project?',
         choices: ['MIT', 'GPLv2', 'Apache', 'GPLv3'],
         default: 'MIT',
-        // No validation needed, it's a list
+        // No validation needed, it's a list!
     },
 
     {
         type: 'input',
-        name: 'Tests',
+        name: 'contribution',
+        message: 'Please tell us how to contribute to your project',
+        validate: (response) => {
+            if (response === '') {
+                return 'Sorry! Please describe how to contribute to your project!'
+            }
+            return true
+        }                 
+    },
+    
+    {
+        type: 'input',
+        name: 'tests',
         message: 'How do you run tests for this project?',
         validate: (response) => {
             if (response === '') {
@@ -121,11 +85,18 @@ const questions = [
             return true
         }       
     },
+
+    {
+        type: 'input',
+        name: 'questions',
+        message: 'Feel free to leave any questions about the project below:',
+        default: ''
+    }, 
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`./${fileName}.md`, data, (err) => {
+    fs.writeFile(`./${fileName}.md`, questions, (err) => {
         //Node uses the failure check first
         if (err) {
             console.log("An error occurred")
