@@ -125,10 +125,10 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`./${fileName}.md`, questions, (err) => {
+    fs.writeFile(`./${fileName}.md`, data, (err) => {
         //Node uses the failure check first
         if (err) {
-            console.log(err)
+            console.log("An error occurred")
         }
         console.log("README generated");
     })

@@ -24,7 +24,7 @@ function generateMarkdown(data) {
 * [App Usage](#appUsage)
 * [Licenses](#licenses)
 * [Tests](#tests)
-`;
+`
 }
 
 module.exports = generateMarkdown;
