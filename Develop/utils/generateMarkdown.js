@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(questions) {
-  switch (questions.licenses) {
+function renderLicenseBadge(questionsForReadme) {
+  switch (questionsForReadme.licenses) {
     //Licenses badges location here: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba 
     case 'MIT':
       licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
@@ -22,8 +22,8 @@ function renderLicenseBadge(questions) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(questions) {
-  switch (questions.licenses) {
+function renderLicenseLink(questionsForReadme) {
+  switch (questionsForReadme.licenses) {
     case 'MIT':
       link = "https://opensource.org/licenses/MIT";
       break;
@@ -43,58 +43,49 @@ function renderLicenseLink(questions) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(questions) {
+function renderLicenseSection(questionsForReadme) {
   return `[Licenses](#licenses)`
 }
 
 // TODO: Create a function to generate markdown for README
 //This function generates the markdown in the file that it is written to (see index.js)
-function generateMarkdown(questions) {
+function generateMarkdown(questionsForReadme) {
   return `
-  # ${questions.projectTitle}
-
-  ## TABLE OF CONTENTS
-  * [User Name](#userName)
-  * [User Email](#userEmail)
-  * [Repository Name](#repositoryName)
-  * [Project Title](#projectTitle)
-  * [Project Description](#projectDescription)
-  * [Contribution](#contribution)
-  * [Installation Steps](#installationSteps)
-  * [App Usage](#appUsage)
-  * [Licenses](#licenses)
-  * [Tests](#tests)
-
-  ### User Name
-  ${questions.userName}
-
-  ### User Email
-  ${questions.userEmail}
-
-  ### Repository Name
-  ${questions.repositoryName}
-
-  ### Project Title
-  ${questions.projectTitle}
-
-  ### Project Description
-  ${questions.project}
-
-  ### Contribution 
-  ${questions.contribution}
-
-  ### Installation Steps
-  ${questions.installationSteps}
-
-  ### App Usage
-  ${questions.appUsage}
 
   ### Licenses
-  * License Badge: ${renderLicenseBadge(data.licenses)}
-  * Link for license Badge: ${renderLicenseLink(data.licenses)}
+  * License Badge: ${renderLicenseBadge(questionsForReadme.licenses)}
+  * Link for license Badge: ${renderLicenseLink(questionsForReadme.licenses)}
 
-  ### Tests 
-  ${questions.tests}
+
+  # ${questionsForReadme.title}
+
+  ## TABLE OF CONTENTS
+  * [Description](#description)
+  * [Installation](#installation)
+  * [App Usage](#appUsage)
+  * [Licenses](#licenses)
+  * [Contribution](#contribution)
+  * [Tests](#tests)
+  * [Questions](#questions)
+
+  ### Description
+  ${questionsForReadme.descriptions}
+
+  ### Installation
+  ${questionsForReadme.installation}
+
+  ### App Usage
+  ${questionsForReadme.appUsage}
+  
+  ### Contribution
+  ${questionsForReadme.contribution}
+
+  ### Tests
+  ${questionsForReadme.tests}
+
+  ### Questions
+  * Any questions? Visit the github repository here! ${questionsForReadme.gitHubRepository}
+  * Any questions? Visit the github repository here! ${`[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`}
 `
 }
 
