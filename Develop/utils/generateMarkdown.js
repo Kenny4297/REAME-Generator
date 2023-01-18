@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(questionsForReadme) {
-  switch (questionsForReadme.licenses) {
+function renderLicenseBadge(license) {
+  switch (license) {
     //Licenses badges location here: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba 
     case 'MIT':
       licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
@@ -18,12 +18,13 @@ function renderLicenseBadge(questionsForReadme) {
     default: 
       return '';
   }
+  return licenseBadge;
 };
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(questionsForReadme) {
-  switch (questionsForReadme.licenses) {
+function renderLicenseLink(license) {
+  switch (license) {
     case 'MIT':
       link = "https://opensource.org/licenses/MIT";
       break;
@@ -39,25 +40,27 @@ function renderLicenseLink(questionsForReadme) {
     default:
       return '';
   }
+  return link;
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(questionsForReadme) {
-  return `[Licenses](#licenses)`
+function renderLicenseSection(license) {
+  if (!license) {
+    return ''
+  } else {
+    return `### Licenses`
+  }
 }
 
 // TODO: Create a function to generate markdown for README
 //This function generates the markdown in the file that it is written to (see index.js)
-function generateMarkdown(questionsForReadme) {
-  return `
+function generateMarkdown(responses) {
+  return `  # ${responses.title}
 
   ### Licenses
-  * License Badge: ${renderLicenseBadge(questionsForReadme.licenses)}
-  * Link for license Badge: ${renderLicenseLink(questionsForReadme.licenses)}
-
-
-  # ${questionsForReadme.title}
+  * License Badge: ${renderLicenseBadge(responses.licenses)}
+  * Link for license Badge: ${renderLicenseLink(responses.licenses)}
 
   ## TABLE OF CONTENTS
   * [Description](#description)
@@ -69,23 +72,25 @@ function generateMarkdown(questionsForReadme) {
   * [Questions](#questions)
 
   ### Description
-  ${questionsForReadme.descriptions}
+  ${responses.description}
 
   ### Installation
-  ${questionsForReadme.installation}
+  ${responses.installation}
 
   ### App Usage
-  ${questionsForReadme.appUsage}
-  
+  ${responses.appUsage}
+
+  ### Licenses
+  ${responses.licenses}
+
   ### Contribution
-  ${questionsForReadme.contribution}
+  ${responses.contribution}
 
   ### Tests
-  ${questionsForReadme.tests}
+  ${responses.tests}
 
   ### Questions
-  * Any questions? Visit the github repository here! ${questionsForReadme.gitHubRepository}
-  * Any questions? Visit the github repository here! ${`[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`}
+  * Any questions? Visit the github repository here! ${responses.gitHubRepository}
 `
 }
 

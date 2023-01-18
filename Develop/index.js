@@ -133,7 +133,7 @@ const questionsForReadme = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`./${fileName}.md`, questionsForReadme, (err) => {
+    fs.writeFile(fileName, data, (err) => {
         //Node uses the failure check first
         if (err) {
             console.log("An error occurred")
@@ -142,39 +142,15 @@ function writeToFile(fileName, data) {
     })
 }
 
-// FILE: It is a string, Buffer, URL or file description integer that denotes the path of the file where it has to be written. Using a file descriptor will make it behave similar to fs.write() method.
-//? Writing to the new file I just created, 'readmeFile.md'
 
-
-// DATA: It is a string, Buffer, TypedArray or DataView that will be written to the file.
-//? 'questions', since that will be the data written to the file
-
-
-// OPTIONS: It is an string or object that can be used to specify optional parameters that will affect the output. It has three optional parameter:
-//     ENCODING: It is a string value that specifies the encoding of the file. The default value is ‘utf8’.
-
-//     MODE: It is an integer value that specifies the file mode. The default value is 0o666.
-
-//     FLAG: It is a string value that specifies the flag used while writing to the file. The default value is ‘w’.
-//^utf8 as the obvious standard
-
-
-// CALLBACK: It is the function that would be called when the method is executed.
-//? This would have to be the 'write stuff to the specified file ('readmeFile.md')
-
-
-// ERR: It is an error that would be thrown if the operation fails.
 
 // TODO: Create a function to initialize app
 const init = async () => {
     //awaiting the prompt method that takes in a set of questions and saves the user input to the variable 'responses'
     let responses = await inquirer.prompt(questionsForReadme);
 
-    //Creates the readme outline (questions) based on the users responses
-    let generateReadme = await generateMarkdown(responses);
-
     //Writes to the MD file
-    writeToFile(`/readmeFile.md`, generateReadme);
+    writeToFile(`./readmeFile.md`, generateMarkdown(responses));
 }
 
 //&Hint for initializing this app
