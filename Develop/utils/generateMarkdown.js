@@ -1,8 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  switch (license) {
-    //Licenses badges location here: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba 
+  switch (license) { 
     case 'MIT':
       licenseBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
       break;
@@ -65,7 +64,7 @@ function generateMarkdown(responses) {
   ## TABLE OF CONTENTS
   * [Description](#description)
   * [Installation](#installation)
-  * [App Usage](#appUsage)
+  * [Usage](#appUsage)
   * [Licenses](#licenses)
   * [Contribution](#contribution)
   * [Tests](#tests)
@@ -77,7 +76,7 @@ function generateMarkdown(responses) {
   ### Installation
   ${responses.installation}
 
-  ### App Usage
+  ### Usage
   ${responses.appUsage}
 
   ### Licenses

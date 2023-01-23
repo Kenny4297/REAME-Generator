@@ -4,7 +4,6 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-//Similar to the JSQuiz format
 const questionsForReadme = [
     {
         type: 'input',
@@ -84,7 +83,6 @@ const questionsForReadme = [
         message: 'What licenses do you need for this project?',
         choices: ['MIT', 'GPLv2', 'Apache', 'GPLv3'],
         default: 'MIT',
-        // No validation needed, it's a list!
     },
 
     {
@@ -149,10 +147,9 @@ const init = async () => {
     //awaiting the prompt method that takes in a set of questions and saves the user input to the variable 'responses'
     let responses = await inquirer.prompt(questionsForReadme);
 
-    //Writes to the MD file
+    //Writes to the MD file in the first argument, and passes in the user responses as the second argument
     writeToFile(`./readmeFile.md`, generateMarkdown(responses));
 }
 
-//&Hint for initializing this app
 // Function call to initialize app
 init();
