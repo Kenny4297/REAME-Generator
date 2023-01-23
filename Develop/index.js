@@ -56,7 +56,7 @@ const questionsForReadme = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Enter the steps for installing this project',
+        message: 'Enter the steps for installing this project:',
         validate: (response) => {
             if (response === '') {
                 return 'Sorry! Please tell us how to install this project!'
