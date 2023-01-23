@@ -88,7 +88,7 @@ const questionsForReadme = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'Please tell us how to contribute to your project',
+        message: 'Please tell us how to contribute to your project:',
         validate: (response) => {
             if (response === '') {
                 return 'Sorry! Please describe how to contribute to your project!'
