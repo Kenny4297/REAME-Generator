@@ -148,7 +148,7 @@ const init = async () => {
     let responses = await inquirer.prompt(questionsForReadme);
 
     //Writes to the MD file in the first argument, and passes in the user responses as the second argument
-    writeToFile(`./readmeFile.md`, generateMarkdown(responses));
+    writeToFile(`./CreatedReadmeFile.md`, generateMarkdown(responses));
 }
 
 // Function call to initialize app
