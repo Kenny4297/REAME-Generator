@@ -64,7 +64,7 @@ function generateMarkdown(responses) {
   ## TABLE OF CONTENTS
   * [Description](#description)
   * [Installation](#installation)
-  * [Usage](#appUsage)
+  * [Usage](#usage)
   * [Licenses](#licenses)
   * [Contribution](#contribution)
   * [Tests](#tests)
@@ -77,7 +77,7 @@ function generateMarkdown(responses) {
   ${responses.installation}
 
   ### Usage
-  ${responses.appUsage}
+  ${responses.usage}
 
   ### Licenses
   ${responses.licenses}
