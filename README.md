@@ -53,4 +53,4 @@ WHEN the client:
 
 The following is a link to the GitPages site: [Readme Generator](https://github.com/Kenny4297/Read-Me-Read-Me-)
 
-The following is a walk through video: [Walk through Video]()
+The following is a walk through video: [Walk through Video](https://drive.google.com/drive/folders/1mFa04sl2EPLp82OyVY8RVF6r7rZLLJCa?usp=sharing)
