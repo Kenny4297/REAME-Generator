@@ -140,8 +140,6 @@ function writeToFile(fileName, data) {
     })
 }
 
-
-
 // TODO: Create a function to initialize app
 const init = async () => {
     //awaiting the prompt method that takes in a set of questions and saves the user input to the variable 'responses'

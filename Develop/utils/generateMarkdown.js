@@ -53,7 +53,6 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Create a function to generate markdown for README
-//This function generates the markdown in the file that it is written to (see index.js)
 function generateMarkdown(responses) {
   return `  # ${responses.title}
 
