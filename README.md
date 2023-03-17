@@ -8,11 +8,8 @@
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Licenses](#licenses)
 * [Contribution](#contribution)
-* [Tests](#tests)
 * [Questions](#questions)
-* [Criteria](#criteria)
 
 ### Description
 This project generates README.md files, and supplies the client with a series of questions that will be included in the readme file. I used npm Inquirer to get user information, and the 'fs' module to change the users information into a README.md file. 
