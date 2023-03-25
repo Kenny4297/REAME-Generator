@@ -28,30 +28,6 @@ const questionsForReadme = [
             return true
         }   
     }, 
-    
-    {
-        type: 'input',
-        name: 'gitHubRepository',
-        message: 'Enter the link to the github repository:',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please tell give us the repository link'
-            }
-            return true
-        }                 
-    },
-
-    {
-        type: 'input',
-        name: 'email',
-        message: 'Enter your email address:',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please type in your email:'
-            }
-            return true
-        }                 
-    },
 
     {
         type: 'input',
@@ -107,26 +83,7 @@ const questionsForReadme = [
             }
             return true
         }       
-    },
-
-    {
-        type: 'input',
-        name: 'gitHubUsername',
-        message: 'What is your github username?',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please tell us what your github username is!'
-            }
-            return true
-        }       
-    },
-
-    {
-        type: 'input',
-        name: 'questions',
-        message: 'Feel free to leave any questions about the project below:',
-        default: ''
-    }, 
+    }
 ];
 
 // TODO: Create a function to write README file

@@ -54,41 +54,38 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(responses) {
-  return `  # ${responses.title}
+  return `  
+# ${responses.title}
 
-  ### Licenses
-  * License Badge: ${renderLicenseBadge(responses.licenses)}
-  * Link for license Badge: ${renderLicenseLink(responses.licenses)}
+(Add a snapshot of the project here)
 
-  ## TABLE OF CONTENTS
-  * [Description](#description)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Licenses](#licenses)
-  * [Contribution](#contribution)
-  * [Tests](#tests)
-  * [Questions](#questions)
+## TABLE OF CONTENTS
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Licenses](#licenses)
+* [Contribution](#contribution)
+* [Tests](#tests)
 
-  ### Description
-  ${responses.description}
+### Description
+${responses.description}
 
-  ### Installation
-  ${responses.installation}
+### Installation
+${responses.installation}
 
-  ### Usage
-  ${responses.usage}
+### Usage
+${responses.usage}
 
-  ### Licenses
-  ${responses.licenses}
+### Licenses
+* License Badge: ${renderLicenseBadge(responses.licenses)}
+* Link for license Badge: ${renderLicenseLink(responses.licenses)}
 
-  ### Contribution
-  ${responses.contribution}
+### Contribution
+${responses.contribution}
 
-  ### Tests
-  ${responses.tests}
+### Tests
+${responses.tests}
 
-  ### Questions
-  * Any questions? Visit the github repository here! ${responses.gitHubRepository}
 `
 }
 
