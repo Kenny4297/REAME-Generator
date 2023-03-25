@@ -1,90 +1,126 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs'); 
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Create an array of questions for user input
 const questionsForReadme = [
-    {
-        type: 'input',
-        name: 'title',
-        message: 'What is the title of the project?',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please enter the title of the project!!'
-            }
-            return true
-        }   
-    }, 
+  {
+    type: 'input',
+    name: 'title',
+    message: 'What is the title of the project?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please enter the title of the project!!'
+      }
+      return true
+    }   
+  }, 
 
-    {
-        type: 'input',
-        name: 'description',
-        message: 'What is the description of the project?',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please enter the description!'
-            }
-            return true
-        }   
-    }, 
+  {
+    type: 'input',
+    name: 'description',
+    message: 'What is the description of the project?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please enter the description!'
+      }
+      return true
+    }   
+  }, 
 
-    {
-        type: 'input',
-        name: 'installation',
-        message: 'Enter the steps for installing this project:',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please tell us how to install this project!'
-            }
-            return true
-        }                 
-    },
+  {
+    type: 'input',
+    name: 'motivation',
+    message: 'What inspired you to create this project?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please describe what inspired you to create this project!'
+      }
+      return true
+    }   
+  }, 
 
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'How do you run this project?',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please tell us how to run this project!'
-            }
-            return true
-        }       
-    },
+  {
+    type: 'input',
+    name: 'technologies',
+    message: 'What technologies did you use to build this project?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please describe what technologies you used to build this project!'
+      }
+      return true
+    }   
+  }, 
 
-    {
-        type: 'list',
-        name: 'licenses',
-        message: 'What licenses do you need for this project?',
-        choices: ['MIT', 'GPLv2', 'Apache', 'GPLv3'],
-        default: 'MIT',
-    },
+  {
+    type: 'input',
+    name: 'features',
+    message: 'What are the main features of the project?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please describe the main features of the project!'
+      }
+      return true
+    }   
+  }, 
 
-    {
-        type: 'input',
-        name: 'contribution',
-        message: 'Please tell us how to contribute to your project:',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please describe how to contribute to your project!'
-            }
-            return true
-        }                 
-    },
-    
-    {
-        type: 'input',
-        name: 'tests',
-        message: 'How do you run tests for this project?',
-        validate: (response) => {
-            if (response === '') {
-                return 'Sorry! Please tell us how to run test for this project!'
-            }
-            return true
-        }       
-    }
-];
+  {
+    type: 'input',
+    name: 'examples',
+    message: 'Can you provide some examples or screenshots of the project in action?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please provide some examples or screenshots of the project in action!'
+      }
+      return true
+    }   
+  }, 
+
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'How can users deploy or install the project?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please describe how users can deploy or install the project!'
+      }
+      return true
+    }                 
+  },
+
+  {
+    type: 'input',
+    name: 'testing',
+    message: 'How can users run tests to ensure the project is working correctly?',
+    validate: (response) => {
+      if (response === '') {
+        return 'Sorry! Please describe how users can run tests for the project!'
+      }
+      return true
+    }       
+  },
+
+  {
+    type: 'input',
+    name: 'troubleshooting',
+    message: 'Are there any common issues or errors that users may encounter? How can they resolve them?',
+  },
+
+  {
+    type: 'input',
+    name: 'contributing',
+    message: 'How can users contribute to the project? Are there any specific guidelines or requirements for contributing?',
+  },
+
+  {
+    type: 'list',
+    name: 'license',
+    message: 'What license(s) apply to this project?',
+    choices: ['MIT', 'Apache', 'GPLv3', 'BSD-3-Clause'],
+    default: 'MIT',
+  },
+]
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {

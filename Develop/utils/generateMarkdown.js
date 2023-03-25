@@ -54,39 +54,54 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(responses) {
-  return `  
+  return `
 # ${responses.title}
 
-(Add a snapshot of the project here)
+## Table of Contents
+- [License](#license)
+- [Description](#description)
+- [Motivation](#motivation)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Examples](#examples)
+- [Installation](#installation)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
 
-## TABLE OF CONTENTS
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Licenses](#licenses)
-* [Contribution](#contribution)
-* [Tests](#tests)
 
-### Description
+## License
+This project is licensed under the ${responses.license} license.
+
+## Description
 ${responses.description}
 
-### Installation
+## Motivation
+${responses.motivation}
+
+## Technologies
+${responses.technologies}
+
+## Features
+${responses.features}
+
+## Examples
+${responses.examples}
+
+## Installation
 ${responses.installation}
 
-### Usage
-${responses.usage}
+## Testing
+${responses.testing}
 
-### Licenses
-* License Badge: ${renderLicenseBadge(responses.licenses)}
-* Link for license Badge: ${renderLicenseLink(responses.licenses)}
+## Troubleshooting
+${responses.troubleshooting}
 
-### Contribution
-${responses.contribution}
+## Contributing
+${responses.contributing}
 
-### Tests
-${responses.tests}
 
-`
+`;
 }
 
 module.exports = generateMarkdown;
