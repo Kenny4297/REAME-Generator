@@ -54,42 +54,54 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(responses) {
-  return `  # ${responses.title}
+  return `
+# ${responses.title}
 
-  ### Licenses
-  * License Badge: ${renderLicenseBadge(responses.licenses)}
-  * Link for license Badge: ${renderLicenseLink(responses.licenses)}
+## Table of Contents
+- [License](#license)
+- [Description](#description)
+- [Motivation](#motivation)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Examples](#examples)
+- [Installation](#installation)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
 
-  ## TABLE OF CONTENTS
-  * [Description](#description)
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Licenses](#licenses)
-  * [Contribution](#contribution)
-  * [Tests](#tests)
-  * [Questions](#questions)
 
-  ### Description
-  ${responses.description}
+## License
+This project is licensed under the ${responses.license} license.
 
-  ### Installation
-  ${responses.installation}
+## Description
+${responses.description}
 
-  ### Usage
-  ${responses.usage}
+## Motivation
+${responses.motivation}
 
-  ### Licenses
-  ${responses.licenses}
+## Technologies
+${responses.technologies}
 
-  ### Contribution
-  ${responses.contribution}
+## Features
+${responses.features}
 
-  ### Tests
-  ${responses.tests}
+## Examples
+${responses.examples}
 
-  ### Questions
-  * Any questions? Visit the github repository here! ${responses.gitHubRepository}
-`
+## Installation
+${responses.installation}
+
+## Testing
+${responses.testing}
+
+## Troubleshooting
+${responses.troubleshooting}
+
+## Contributing
+${responses.contributing}
+
+
+`;
 }
 
 module.exports = generateMarkdown;
