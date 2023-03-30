@@ -65,10 +65,8 @@ function generateMarkdown(responses) {
 - [Features](#features)
 - [Examples](#examples)
 - [Installation](#installation)
-- [Testing](#testing)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
-
 
 ## License
 This project is licensed under the ${responses.license} license.
@@ -91,16 +89,11 @@ ${responses.examples}
 ## Installation
 ${responses.installation}
 
-## Testing
-${responses.testing}
-
 ## Troubleshooting
 ${responses.troubleshooting}
 
 ## Contributing
 ${responses.contributing}
-
-
 `;
 }
 
